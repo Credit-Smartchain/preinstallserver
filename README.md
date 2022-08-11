@@ -5,24 +5,34 @@ Upload via SFTP preinstallnode.zip
 Create mainnet folder and move preinstallnode.zip to this folder
 
 $ mkdir mainnet
+
 $ mv preinstallnode.zip ./mainnet/
+
 $ cd mainnet
+
 $ yum install zip unzip
+
 $ unzip preinstallnode.zip
 
+
 Create new account
+
 $ ./geth --datadir=./mnode --password ./password.txt account new > account.txt
 
 Copy address from account.txt
+
 $ vi account.txt
 
 paste the address somewhere : (ex: 0xC0ea77B1D07e5c384A2f1Ba7a8c01e38a6Ac48A0)
 
 Init node
+
 $ ./geth --datadir ./mnode init credit.json
 
 Create Start.sh
+
 Below you need to paste your wallet in between the ''  replacing the dummy text: PASTE YOUR WALLET YOU COPIED EARLIER HERE
+
 $ vi start.sh
 
 Copy and paste your wallet in between the ''  replacing the dummy text: PASTE YOUR WALLET YOU COPIED EARLIER HERE
@@ -32,9 +42,12 @@ nohup ./geth -snapshot=false --datadir mnode --syncmode 'full' --gcmode=archive 
 Then copy the whole text and past into the start.sh file , write and quite
 
 Run node
+
 $ chmod +x start.sh
+
 $ ./start.sh 
 
 Check log
+
 $ tail -f chain.log
-GitHub
+
